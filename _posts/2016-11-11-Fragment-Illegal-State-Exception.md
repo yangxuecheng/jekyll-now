@@ -1,10 +1,11 @@
 ---
-published: true
+published: false
 ---
 ### Fragment IllegalState Exception 原因探究
 
 ### 原因
->原因：在activity调用了onSaveInstanceState()方法之后，尝试提交Fragment Transaction。
+> 原因：在activity调用了onSaveInstanceState()方法之后，尝试提交Fragment Transaction。
+
 那么问题来了，为什么调用了onSaveInstanceState()之后，为嘛就不能再提交Fragment的Transaction了？
 
 先说下onSaveInstanceState()。
