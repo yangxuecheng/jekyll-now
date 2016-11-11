@@ -1,7 +1,10 @@
+---
+published: false
+---
 ### Fragment IllegalState Exception 原因探究
 
 ### 原因
-	原因：在activity调用了onSaveInstanceState()方法之后，尝试提交Fragment Transaction。
+>原因：在activity调用了onSaveInstanceState()方法之后，尝试提交Fragment Transaction。
 那么问题来了，为什么调用了onSaveInstanceState()之后，为嘛就不能再提交Fragment的Transaction了？
 
 先说下onSaveInstanceState()。
@@ -24,4 +27,3 @@ commitAllowingStateLoss()的意思也就是如果出现了stateLoss的状态，�
 ###参考资料
 1. IllagalState Exception的详细解释，推荐阅读[fragment-transaction-commit-state-loss](http://www.androiddesignpatterns.com/2013/08/fragment-transaction-commit-state-loss.html)
 2. 这里有说明如何实现自动保存Fragment/Activity的的状态[The Real Best Practices to Save/Restore Activity's and Fragment's state](https://inthecheesefactory.com/blog/fragment-state-saving-best-practices/en)
-
