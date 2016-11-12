@@ -1,7 +1,7 @@
 ---
 layout: post
-published: true
 title:Fragment IllegalState Exception 原因探究
+published: true
 ---
 ### 原因
 > 原因：在activity调用了onSaveInstanceState()方法之后，尝试提交Fragment Transaction。
