@@ -15,8 +15,8 @@ mStateSaved 就会标记为true。该标记用来检测是否有状态丢失。�
 
 ### 如何避免
 1.避免在onSaveInstanceState()之后提交fragment事务。大部分的fragment事务是在onCreate中完成的，这是OK的。但是如果在Activity的其他状态中，如onResume,onStart(),onActivityResult()等方法中去提交Fragment事务就可能存在问题。因为这时候activity的状态可能还没有恢复。
-- onResume():可以考虑增加在onResumeFragments(),或者onPostResume()。
-- onActivityResult()：可以参考[SO的方法](http://stackoverflow.com/questions/16265733/failure-delivering-result-onactivityforresult)
+* onResume():可以考虑增加在onResumeFragments(),或者onPostResume()。
+* onActivityResult()：可以参考[SO的方法](http://stackoverflow.com/questions/16265733/failure-delivering-result-onactivityforresult)
 
 2.避免在异步回调方法中提交Fragment事务。
 包括AsyncTask的onPostExcute()，LoaderManager的onLoadFinished().因为回调的时候是无法确认Activity的状态的。
