@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 layout: post
 ---
 ### 如何开发一个独立的Gradle插件
