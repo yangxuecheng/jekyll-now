@@ -1,3 +1,7 @@
+---
+published: true
+layout: post
+---
 ### 如何开发一个独立的Gradle插件
 
 从开始用Android Studio进行Android开发开始，Gradle就和我们形影不离了，因为Gradle的这套东西和我们熟悉的java差异较大，因此Gradle对我们常常是一个勉强够用的状态，至于怎么写一个可用的Gradle插件，往往更是不知如何下手了。在这篇文章里我将详细描述如何从零开始写一个Android的gradle插件。
