@@ -38,7 +38,7 @@ Gradle for Android](https://segmentfault.com/a/1190000004229002)这个系列，�
 3. 新建一个Groovy类，命名随意，这里命名为 *BlogPlugin*。
 
 4. 在build.gradle中添加依赖。
-```groovy
+```
   compile gradleApi()
   compile localGroovy()
 ```
@@ -47,7 +47,7 @@ Gradle for Android](https://segmentfault.com/a/1190000004229002)这个系列，�
   ![Alt text](../images/Snip20161120_12.png)
 
 6. 回到 *BlogPlugin* 代码，让其实现Plugin的接口。选择org.gradle.api对应的那个。如下图所示。
-```groovy
+```
 package com.yxc
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -61,7 +61,7 @@ class BlogPlugin implements Plugin<Project> {
 7. 会提示必须要重写apply方法，apply是插件运行的入口，重写之。
 
 8. 熟悉Gradle概念的同学应该知道，每一个build.grade文件代表着一个project，每一个project至少包含一个task，在这个插件里，我们定义一个简单的任务，显示连接的设备列表，也就是常用的命令 **adb devices**
-```groovy
+```
 @Override
 void apply(Project project) {
     def showDevicesTask = project.tasks.create("showDevices") << {   //通过project的android属性来查找adb命令的路径
@@ -123,7 +123,7 @@ implementation-class=com.yxc.BlogPlugin
 
 ### 应用插件
 1. 回到我们熟悉的Android Studio。新建一个项目，在项目的根目录的gradle文件中增加本地仓库。
-```groovy
+```
 repositories {
     maven {
         url uri('/path/to/your/repo')
@@ -132,7 +132,7 @@ repositories {
 ```
 
 2. 在dependencies中增加blogpost的路径。两个冒号之间是artifactId,之前是groupId，之后是版本号。
-```groovy
+```
 dependencies {
     classpath 'com.android.tools.build:gradle:2.2.2'
     classpath 'com.yxc:blogpost:1.0'
@@ -141,7 +141,7 @@ dependencies {
 ![Alt text](../images/Snip20161120_23.png)
 
 3. 在项目主模块的build.gradle中增加应用插件
-```groovy
+```
 apply plugin: 'com.yxc.blogplugin'
 ```
 
