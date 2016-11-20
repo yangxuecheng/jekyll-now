@@ -70,12 +70,10 @@ layout: post
 ### Gradle
 - gradle语法
   -  [Gradle for Android @neu](https://segmentfault.com/a/1190000004229002)
-- gradle插件
-  -  [如何从零开始写一个Gradle插件](https://afterecho.uk/blog/create-a-standalone-gradle-plugin-for-android-a-step-by-step-guide.html)
 
 ### 架构
 - mvp
-    - 开源项目
+    - 开源项目s
       -  [谷歌MVP架构项目](https://github.com/googlesamples/android-architecture/tree/todo-mvp-loaders/)
       -  [Material Mobies](https://github.com/saulmm/Material-Movies)
       -  [EffectiveUI](https://github.com/pedrovgs/EffectiveAndroidUI/)
