@@ -78,6 +78,7 @@ void apply(Project project) {
 ```
 
 ### 发布插件
+
 1. 我们已经完成了上面的插件的创建，我们新建了一个插件，该插件的包含一个task，执行 **adb devices**。那现在我们怎么把这个插件用到我们的项目中呢，我们常用的插件一般都是发布到maven仓库，或者JCenter，那我们的插件怎么发布呢？发布到本地！
 
 2. 我们可以讲我们的插件发布到本机指定的目录上。在build.gradle中添加如下代码。讲'repo'替换成任何你想要放置的目录，直接使用’repo'也是可以的，这样本地仓库就在当前工程的目录下的repo目录下，简单起见，我们就用‘repo’
@@ -93,22 +94,15 @@ uploadArchives {
 ```
 
 3. 刷新gradle的任务列表，会看到新增了一个upload的任务，双击uploadArchives。成功!
-
-  ![Alt text](../images/Snip20161120_14.png)
-
-  然后查看项目的目录下，是否多出了一个repo的目录。
+![Alt text](../images/Snip20161120_14.png)
+然后查看项目的目录下，是否多出了一个repo的目录。
 我在运行的时候发现有错误。如下图所示：
-
-  ![Alt text](../images/Snip20161120_15.png)
-
-  重新运行task，加上堆栈信息。
-
-  ![Alt text](../images/Snip20161120_16.png)
-  ![Alt text](../images/Snip20161120_17.png)
-
-  也就是说是grovvy版本不一致的问题，将dependency中groovy的版本改成2.4.4,重新同步工程,重新运行uploadArchives。成功!
-
-  ![Alt text](../images/Snip20161120_19.png)
+![Alt text](../images/Snip20161120_15.png)
+重新运行task，加上堆栈信息。
+![Alt text](../images/Snip20161120_16.png)
+![Alt text](../images/Snip20161120_17.png)
+也就是说是grovvy版本不一致的问题，将dependency中groovy的版本改成2.4.4,重新同步工程,重新运行uploadArchives。成功!
+![Alt text](../images/Snip20161120_19.png)
 
 4. 再次运行uploadArchives，发现又生成了一份文件，并未将原来的文件覆盖,这是为何?这就是因为我们之前指定的的版本是SNAPSHOT，意味着我们会把每次运行的当前状态拍一份快照，如果我们不想要这么多快照，可以在 *build.gradle* 中吧Version的SNAPSHOT去掉。重新运行ploadArchives。
 ![Alt text](../images/Snip20161120_20.png)
@@ -153,7 +147,8 @@ apply plugin: 'com.yxc.blogplugin'
 
 4. 同步项目，可以看到新的插件已经安装上了，双击shwoDevices即可运行。
 或者可以在命令行中输入
-```groovy
+
+```
 ./gradlew showDevices
 ```
 即可看到运行效果。
